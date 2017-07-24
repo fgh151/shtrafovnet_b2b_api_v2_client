@@ -17,7 +17,7 @@ class ShtrafovnetClient
     /**
      * @return array
      */
-    public function getParams(): array
+    public function getParams()
     {
         return $this->params;
     }
@@ -143,9 +143,9 @@ class ShtrafovnetClient
     /**
      * @return string
      */
-    public function getApiBaseUrl(): string
+    public function getApiBaseUrl()
     {
-        return $this->params['host'] ?? 'http://example.com';
+        return !empty($this->params['host']) ? $this->params['host'] : 'http://example.com';
     }
 
     /**
@@ -159,15 +159,18 @@ class ShtrafovnetClient
 
     public function getBasicAuthHeader()
     {
-        $username = $this->getParams()['account']['login'] ?? 'username';
-        $password = $this->getParams()['account']['password'] ?? 'password';
+        $username = !empty($this->getParams()['account']['login']) ?
+            $this->getParams()['account']['login'] : 'username';
+
+        $password = !empty($this->getParams()['account']['password']) ?
+            $this->getParams()['account']['password'] : 'password';
 
         return 'Authorization: Basic '.base64_encode($username.":".$password);
     }
 
     public function getBearerAuthHeader()
     {
-        $token = $this->getParams()['token'] ?? 'fail_token';
+        $token = !empty($this->getParams()['token']) ? $this->getParams()['token'] : 'fail_token';
 
         return 'Authorization: Bearer '.$token;
     }
@@ -232,7 +235,8 @@ class ShtrafovnetClient
         ];
 
         $data = [
-            'email' => $this->getParams()['account']['login'] ?? 'user@example.com',
+            'email' => !empty($this->getParams()['account']['login']) ?
+                $this->getParams()['account']['login'] : 'user@example.com',
         ];
 
         return $this->sendPostRequest($url, json_encode($data), $headers);

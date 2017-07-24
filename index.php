@@ -44,7 +44,7 @@ try {
 //        'reg' => 'р 668 xo 36 ',
 //    ]);
 
-//    list($headers, $body) = $apiClient->getCar(1003163);
+//    list($headers, $body) = $apiClient->getCar(1003708);
 
 //    list($headers, $body) = $apiClient->getCars();
 
@@ -54,13 +54,15 @@ try {
 
 //      list($headers, $body) = $apiClient->deleteCar(1003163);
 
-//    list($headers, $body) = $apiClient->getFines([
-//        'cars' => [1003163],
+    list($headers, $body) = $apiClient->getFines([
+//        'cars' => [1003726],
 //        'org' => 'gibdd',
-//        'filters' => ['expired']
-//    ]);
+//        'filters' => ['discount']
+//'started' => '2017-06-10',
+//'ended'   => '2017-06-12',
+    ]);
 //
-//    list($headers, $body) = $apiClient->getFine(2949426);
+//    list($headers, $body) = $apiClient->getFine(2952289);
 
 //    list($headers, $body) = $apiClient->getServices();
 
@@ -80,7 +82,7 @@ try {
 //    ]);
 
 //    list($headers, $body) = $apiClient->getRegistries();
-    list($headers, $body) = $apiClient->getRegistry(209);
+//    list($headers, $body) = $apiClient->getRegistry(209);
 //    list($headers, $body) = $apiClient->deleteRegistry(208);
 
 //    list($headers, $body) = $apiClient->billRegistry(209);
