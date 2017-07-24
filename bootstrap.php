@@ -2,17 +2,23 @@
 
 function warningForegroundColor($string)
 {
-    return "\033[1;33m".$string."\033[0m";
+    // Color console
+    // return "\033[1;33m".$string."\033[0m";
+    return $string;
 }
 
 function dangerForegroundColor($string)
 {
-    return "\033[1;31m".$string."\033[0m";
+    // Color console
+    // return "\033[1;31m".$string."\033[0m";
+    return $string;
 }
 
 function successForegroundColor($string)
 {
-    return "\033[0;32m".$string."\033[0m";
+    // Color console
+    // return "\033[0;32m".$string."\033[0m";
+    return $string;
 }
 
 function displayResponse($headers, $body)
