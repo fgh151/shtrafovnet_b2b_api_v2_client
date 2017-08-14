@@ -369,9 +369,13 @@ class ShtrafovnetClient
      * Получение списка ТС
      * GET /cars
      */
-    public function getCars()
+    public function getCars($queryParams = [])
     {
         $url = $this->getApiBaseUrl()."/cars";
+
+        if (!empty($queryParams)) {
+            $url .= "?".http_build_query($queryParams);
+        }
 
         $headers = [
             $this->getBearerAuthHeader(),
